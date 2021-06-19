@@ -9,8 +9,8 @@ export const Container = styled.div`
 
     background-color: var(--secondary);
 
-    height: 350px;
-    max-height: 350px;
+    height: 380px;
+    max-height: 380px;
     
     border-radius: 10px;
     margin: 5px 5px 5px 0;

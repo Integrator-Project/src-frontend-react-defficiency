@@ -1,6 +1,8 @@
 import React from 'react';
 import { Chart } from 'chart.js';
 
+import { Container } from './styles'
+
 class LineChart extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,12 @@ class LineChart extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.data);
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'line',
       options: {
-        maintainAspectRatio: true,
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
           xAxes: [
             {
@@ -53,7 +57,9 @@ class LineChart extends React.Component {
   }
 
   render() {
-    return <canvas ref={this.canvasRef} />;
+    return <Container>
+      <canvas ref={this.canvasRef} />
+    </Container>;
   }
 }
 
