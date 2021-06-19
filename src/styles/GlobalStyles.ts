@@ -32,7 +32,7 @@ export default createGlobalStyle`
         --quinary: #06261A;
     
         --white: #fff;
-        --light-gray: #6E6E6E;
+        --light-gray: #6F6E6E;
         --input: #6C7581;
 
         --getting-worse: #C81919;
