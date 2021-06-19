@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Search } from 'styled-icons/heroicons-solid';
 
 export const Container = styled.div`
-    grid-area: SB;
-
     display: flex;
 
     justify-content: space-between;

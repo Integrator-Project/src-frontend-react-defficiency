@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {DoubleArrow} from 'styled-icons/material';
 
 export const Container = styled.div`
-    grid-area: AI;
+    
 `;
 
 

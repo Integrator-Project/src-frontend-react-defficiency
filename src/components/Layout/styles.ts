@@ -12,7 +12,7 @@ export const Grid = styled.div`
     grid-template-rows: 110px 135px auto;
 
     grid-template-areas: 
-        'AI LG SB'
+        'AI AI AI'
         'GD GD GD' 
         'TC TC TC';
 
@@ -23,6 +23,7 @@ export const Grid = styled.div`
     height: 100%;
 
     @media (max-width: 1000px) {
-        grid-template-rows: 110px 300px auto;
+        display: flex;
+        flex-direction: column;
     }
 `;

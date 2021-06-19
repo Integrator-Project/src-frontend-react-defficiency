@@ -4,7 +4,8 @@ import { QuestionCircle } from 'styled-icons/fa-regular';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    flex-grow: 1;
+    flex-basis: calc(100% / 3 * 2 + 10px);
 
     background-color: var(--secondary);
 
@@ -12,7 +13,7 @@ export const Container = styled.div`
     max-height: 350px;
     
     border-radius: 10px;
-    margin: 5px 5px 10px 0;
+    margin: 5px 5px 5px 0;
 
     padding: 20px 30px;
 `;

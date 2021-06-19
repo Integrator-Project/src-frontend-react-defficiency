@@ -2,9 +2,7 @@ import React from 'react';
 
 import { Grid } from './styles';
 
-import ApplicationInfo from '../ApplicationInfo';
-import SearchBox from '../SearchBox';
-
+import Header from '../Header';
 import GeneralDataContainer  from '../GeneralDataContainer';
 import TopConutriesContainer from '../TopCountriesContainer';
 
@@ -12,8 +10,7 @@ import TopConutriesContainer from '../TopCountriesContainer';
 const Layout: React.FC = () => {
     return (
         <Grid>
-            <ApplicationInfo />
-            <SearchBox />
+            <Header />
             <GeneralDataContainer />
             <TopConutriesContainer />
         </Grid>

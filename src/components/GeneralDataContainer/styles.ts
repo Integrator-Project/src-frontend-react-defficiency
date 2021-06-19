@@ -13,8 +13,9 @@ export const Container = styled.div`
 
         > div {
             flex-grow: 0;
+            flex-basis: auto;
             margin: 5px;
-            height: 150px;
+            height: 120px;
         }
     }
 `;
