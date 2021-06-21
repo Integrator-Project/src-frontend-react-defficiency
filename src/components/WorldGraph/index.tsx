@@ -3,7 +3,7 @@ import React from 'react';
 import DoughnutChart from '../Graphics/DoughnutChart';
 import getVaccinationData from '../../utils/getVaccinationData';
 
-import { Container, Header, Title, ConfigWrapper, HelpIcon } from './styles';
+import { Container, Header, Title, ConfigWrapper, HelpIcon, ChartWrapper } from './styles';
 
 const WorldGraph: React.FC = () => {
     const data = getVaccinationData();
@@ -16,7 +16,13 @@ const WorldGraph: React.FC = () => {
                     <HelpIcon />
                 </ConfigWrapper>
             </Header>
-            <DoughnutChart />
+            <ChartWrapper>
+                <DoughnutChart />
+                <div>
+                    <h3>População vacinada</h3>
+                    <span>23%</span>
+                </div>
+            </ChartWrapper>
         </Container>
     );
 }

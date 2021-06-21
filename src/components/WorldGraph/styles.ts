@@ -31,6 +31,32 @@ export const ConfigWrapper = styled.div`
 
 `;
 
+export const ChartWrapper = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    > div h3 {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    > div span {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        font-size: 70px;
+    }
+`;
+
 export const HelpIcon = styled(QuestionCircle)`
     width: 25px;
     color: var(--light-gray)
