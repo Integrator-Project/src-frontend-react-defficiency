@@ -3,11 +3,12 @@ import { Button, Modal } from 'react-bootstrap';
 
 import cancel from '../../assets/icons/cancel.svg';
 
+import { Container } from './styles';
 import './styles.css';
 
 interface HolmesModalProps {
     title: string,
-    message: string,
+    content: any,
     buttonText: string,
     setVisible: Function,
     confirmAction: Function
@@ -39,7 +40,9 @@ const DefficiencyModal:React.FC<HolmesModalProps> = (props) => {
                 </Modal.Header>
 
                 <Modal.Body className="modal-message">
-                    <p>{props.message}</p>
+                    <Container className='container'>
+                        {props.content}
+                    </Container>
                 </Modal.Body>
 
                 <Modal.Footer className="modal-footer">

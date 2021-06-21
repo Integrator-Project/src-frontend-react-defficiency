@@ -7,7 +7,8 @@ interface CountryItemProps {
     avatar_url: string,
     name: string,
     vaccination_percentage: number,
-    total_vaccination: number
+    total_vaccination: number,
+    detailed: boolean
 }
 
 const CountryItem: React.FC<CountryItemProps> = ({
@@ -15,7 +16,8 @@ const CountryItem: React.FC<CountryItemProps> = ({
     avatar_url,
     name,
     vaccination_percentage,
-    total_vaccination
+    total_vaccination,
+    detailed
 }) => {
     return (
         <Container>
@@ -25,7 +27,8 @@ const CountryItem: React.FC<CountryItemProps> = ({
                 <span>{name}</span>
             </Identification>
             <Results>
-                <span>{vaccination_percentage}%</span>
+                {detailed && <span>Pessoas vacinadas: {total_vaccination} | {vaccination_percentage}%</span>}
+                {!detailed && <span>{vaccination_percentage}%</span>}
             </Results>
         </Container>
     );
