@@ -7,6 +7,7 @@ class LineChart extends React.Component {
   constructor(props) {
     super(props);
     this.canvasRef = React.createRef();
+    
   }
 
   componentDidUpdate() {
@@ -16,7 +17,8 @@ class LineChart extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.data);
+    const d2 = [...this.props.data.total_vacination];
+    d2.reverse();
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'line',
       options: {
@@ -51,7 +53,18 @@ class LineChart extends React.Component {
           borderColor: this.props.color,
           borderWidth: 1,
           lineTension: 0
-        }]
+        },
+        {
+          label: 'Multi line test',
+          data: d2,
+          fill: 'none',
+          backgroundColor: this.props.color,
+          pointRadius: 1,
+          borderColor: this.props.color,
+          borderWidth: 1,
+          lineTension: 0
+        }
+      ]
       }
     });
   }

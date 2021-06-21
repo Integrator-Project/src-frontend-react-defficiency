@@ -4,7 +4,7 @@ import CountryItem from '../CountryItem';
 
 import { Container, Header, Title, List, Button } from './styles';
 
-const TopCountriesList: React.FC = () => {
+const CountriesList: React.FC = () => {
     return (
         <Container>
             <Header>
@@ -14,73 +14,73 @@ const TopCountriesList: React.FC = () => {
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
                 <CountryItem 
                 id={1} 
                 avatar_url='https://restcountries.eu/data/col.svg'
-                name='Colombia'
+                name='Colômbia'
                 vaccination_percentage={60}
                 total_vaccination={21321521}/>
             </List>
@@ -89,4 +89,4 @@ const TopCountriesList: React.FC = () => {
     );
 }
 
-export default TopCountriesList;
+export default CountriesList;

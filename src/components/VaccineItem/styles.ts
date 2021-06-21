@@ -24,8 +24,6 @@ export const Identification = styled.div`
 
     > img {
         width: 20px;
-        height: 20px;
-        border-radius: 50%;
         margin: 0 10px;
     }
 
@@ -34,13 +32,8 @@ export const Identification = styled.div`
     }
 `;
 
-export const Results = styled.div`
+export const Producer = styled.div`
     display: flex;
     align-items: center;
-
-    > span {
-        color: var(--light-gray);
-        margin-left: 10px;
-    }
+    color: var(--light-gray);
 `;
-

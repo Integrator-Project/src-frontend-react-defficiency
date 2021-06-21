@@ -19,7 +19,7 @@ export const Grid = styled.div`
     margin: auto;
     padding: 0 20px;
 
-    max-width: 1080px;
+    max-width: 1200px;
     height: 100%;
 
     @media (max-width: 1000px) {

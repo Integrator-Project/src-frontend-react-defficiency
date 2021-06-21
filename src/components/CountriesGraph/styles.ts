@@ -32,6 +32,6 @@ export const ConfigWrapper = styled.div`
 `;
 
 export const HelpIcon = styled(QuestionCircle)`
-    width: 30px;
+    width: 25px;
     color: var(--light-gray)
 `;
