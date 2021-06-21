@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import CountryItem from '../CountryItem';
 import DefficiencyModal from '../../components/DefficiencyModal';
 
 import { Container, Header, Title, List, Button } from './styles';
+import { Country } from '../../models/country.model';
+import { CountryService } from '../../services/country.service'
 
 const CountriesList: React.FC = () => {
+
+    const [country, setCountry] = useState<Country[]>([]);
+
+    async function getCountries() {
+        const countryService = new CountryService();
+        setCountry(await countryService.getAll())
+    }
+
+    useEffect(() => {
+        getCountries()
+    }, [])
+
     const history = useHistory();
     const [isModalVisible, setModalVisible] = useState(false);
     const itens = Array.from(Array(30).keys()).map((n) => (
