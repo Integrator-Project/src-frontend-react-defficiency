@@ -1,9 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Container, Logo, CustomDate, DoubleArrowIcon } from './styles';
 
 const VaccinationsCard: React.FC = () => {
     const date = handleGetDate();
+    const history = useHistory();
+
+    function handleShowLanding() {
+        history.push('/');
+    }
 
     function handleGetDate() {
         const date = new Date();
@@ -18,7 +24,7 @@ const VaccinationsCard: React.FC = () => {
 
     return (
         <Container>
-            <Logo>Defficiency</Logo>
+            <Logo onClick={handleShowLanding}>Defficiency</Logo>
 
             <CustomDate><DoubleArrowIcon/>{date}</CustomDate>
         </Container>

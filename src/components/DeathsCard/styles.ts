@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 25px;
+    font-size: 30px;
 `;
 
 interface AmountProps {
@@ -24,7 +24,7 @@ interface AmountProps {
 
 export const Amount = styled.div<AmountProps>`
     color: var(${props => props.improving ? '--improving':'--getting-worse'});
-    margin-top: 15px;
+    margin-top: 5px;
 
-    font-size: 22px;
+    font-size: 28px;
 `;

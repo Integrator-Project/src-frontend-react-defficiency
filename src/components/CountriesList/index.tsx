@@ -9,41 +9,35 @@ import { Country } from '../../models/country.model';
 import { CountryService } from '../../services/country.service'
 
 const CountriesList: React.FC = () => {
-
     const [country, setCountry] = useState<Country[]>([]);
 
-    async function getCountries() {
+    async function handleGetCountries() {
         const countryService = new CountryService();
         setCountry(await countryService.getAll())
     }
 
+    function handleGenerateCountryItem(detailed: boolean) {
+        return (
+            country.map(country => {
+                return <CountryItem
+                    key={country.id}
+                    country={country}
+                    detailed={detailed}
+                    vaccination_percentage={60}
+                    total_vaccination={21321521}/>
+            })
+        );
+    }
+
     useEffect(() => {
-        getCountries()
+        handleGetCountries()
     }, [])
 
     const history = useHistory();
     const [isModalVisible, setModalVisible] = useState(false);
-    const itens = Array.from(Array(30).keys()).map((n) => (
-        <CountryItem
-            key={n}
-            id={n+1} 
-            avatar_url='https://restcountries.eu/data/col.svg'
-            name='Colômbia'
-            detailed={false}
-            vaccination_percentage={60}
-            total_vaccination={21321521}/>
-    ));
+    const itens = handleGenerateCountryItem(false);
 
-    const itens2 = Array.from(Array(30).keys()).map((n) => (
-        <CountryItem
-            key={n}
-            id={n+1} 
-            avatar_url='https://restcountries.eu/data/col.svg'
-            name='Colômbia'
-            detailed={true}
-            vaccination_percentage={60}
-            total_vaccination={21321521}/>
-    ));
+    const itens2 = handleGenerateCountryItem(true);
 
     const modal = DefficiencyModal({
         title: "Clique em um pais para visualizar mais!",
@@ -66,7 +60,7 @@ const CountriesList: React.FC = () => {
                 <Title>Países que mais vacinaram</Title>
             </Header>
             <List>
-                { itens }
+                { itens.slice(0, 5) }
             </List>
             <Button onClick={handleShowModal}>Ver todos os países</Button>
         </Container>

@@ -8,9 +8,10 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
     font-weight: bold;
-    font-size: 30px;
+    font-size: 40px;
 
-    margin-top: 20px;
+    margin-top: 10px;
+    cursor: pointer;
 `;
 
 export const CustomDate = styled.div`

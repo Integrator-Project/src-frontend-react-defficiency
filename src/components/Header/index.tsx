@@ -6,8 +6,10 @@ import ApplicationInfo from '../ApplicationInfo';
 import SearchBox from '../SearchBox';
 
 const Layout: React.FC = () => {
+    
+
     return (
-        <Container>
+        <Container >
             <ApplicationInfo />
             <SearchBox />
         </Container>

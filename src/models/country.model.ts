@@ -11,7 +11,7 @@ export interface Country extends Entity {
     population: number;
     area: number;
     native_name: string;
-    flag: URL;
+    flag: string;
     numeric_code?: number;
     latitude?: number;
     longitude?: number;
