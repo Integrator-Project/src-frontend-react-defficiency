@@ -29,12 +29,12 @@ const CountryItem: React.FC<CountryItemProps> = ({
         <Container onClick={HandleViewMore}>
             <Identification>
                 <span>{position}</span>
-                <img src={country.flag} alt={`Imagem do país ${country.name}`} />
-                <span>{country.name}</span>
+                <img src={country.flag} alt={`Imagem do país ${country.translations[0].br}`} />
+                <span>{country.translations[0].br}</span>
             </Identification>
             <Results>
                 {detailed && <span>Pessoas vacinadas: {total_vaccination} | {vaccination_percentage}%</span>}
-                {!detailed && <span>{vaccination_percentage}%</span>}
+                {!detailed && <span>{total_vaccination}</span>}
             </Results>
         </Container>
     );

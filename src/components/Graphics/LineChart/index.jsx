@@ -15,6 +15,9 @@ class LineChart extends React.Component {
     this.myChart.data.datasets[0].data = this.props.data.vaccines;
     this.myChart.data.datasets[1].data = this.props.data.deaths;
     this.myChart.data.datasets[2].data = this.props.data.cases;
+    this.myChart.data.datasets[3].data = this.props.data.active_cases;
+    this.myChart.data.datasets[4].data = this.props.data.recovered_cases;
+
     this.myChart.update();
   }
 
@@ -72,6 +75,26 @@ class LineChart extends React.Component {
           backgroundColor: '#9c8e13',
           pointRadius: 1,
           borderColor: '#9c8e13',
+          borderWidth: 3,
+          lineTension: 0
+        },
+        {
+          label: 'Casos Ativos',
+          data: this.props.data.active_cases,
+          fill: 'none',
+          backgroundColor: '#913082',
+          pointRadius: 1,
+          borderColor: '#913082',
+          borderWidth: 3,
+          lineTension: 0
+        },
+        {
+          label: 'Casos Recuperados',
+          data: this.props.data.recovered_cases,
+          fill: 'none',
+          backgroundColor: '#417a0b',
+          pointRadius: 1,
+          borderColor: '#417a0b',
           borderWidth: 3,
           lineTension: 0
         }

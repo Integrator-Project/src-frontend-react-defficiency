@@ -46,7 +46,7 @@ const Country: React.FC = () => {
             <CountryAnalysisContainer 
                 vaccines={data?.vaccination.vaccines}
                 vaccination_started={data?.vaccination.started}
-                country_name={data?.country.name}
+                country_name={data?.country.translations[0].br}
             />
         </Grid>
     );

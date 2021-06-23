@@ -26,7 +26,7 @@ const CountriesList: React.FC = () => {
 
     async function handleGetCountries() {
         const vaccineApplicationService = new VaccineApplicationService();
-        setData((await vaccineApplicationService.getMost('vaccinated')))
+        setData((await vaccineApplicationService.getMost('vaccinated', 250)))
     }
 
     function handleGenerateCountryItem(detailed: boolean) {
@@ -60,7 +60,7 @@ const CountriesList: React.FC = () => {
                 <Title>Países que mais vacinaram</Title>
             </Header>
             <List>
-                { itens?.slice(0, 5) }
+                { itens?.slice(0, 10) }
             </List>
             <Button onClick={handleShowModal}>Ver todos os países</Button>
         </Container>

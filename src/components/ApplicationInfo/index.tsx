@@ -29,7 +29,7 @@ const ApplicationInfo: React.FC<Props> = ({country}) => {
 
     return (
         <Container>
-            <Logo onClick={handleShowLanding}>Defficiency{country && <span>({country.name})</span>}</Logo>
+            <Logo onClick={handleShowLanding}>Defficiency{country && <span>({country.translations[0].br})</span>}</Logo>
 
             <CustomDate><DoubleArrowIcon/>{date}</CustomDate>
         </Container>

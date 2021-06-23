@@ -15,4 +15,19 @@ export interface Country extends Entity {
     numeric_code?: number;
     latitude?: number;
     longitude?: number;
+    translations: [
+        {
+            id: number;
+            de: string;
+            es: string;
+            fr: string;
+            ja: string;
+            it: string;
+            br: string;
+            pt: string;
+            nl: string;
+            hr: string;
+            fa: string;
+        }
+    ]
 }

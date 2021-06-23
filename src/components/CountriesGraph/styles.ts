@@ -27,7 +27,8 @@ export const Title = styled.div`
 `;
 
 export const ConfigWrapper = styled.div`
-
+    display: flex;
+    align-items: center;
 `;
 
 export const MonthIntervalSelect = styled.select`
@@ -37,6 +38,7 @@ export const MonthIntervalSelect = styled.select`
     border: 0;
     background-color: var(--secondary);
     line-height: inherit;
+    cursor: pointer;
 
     > option {
         outline: none;

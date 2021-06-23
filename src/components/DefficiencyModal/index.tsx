@@ -28,7 +28,6 @@ const DefficiencyModal:React.FC<HolmesModalProps> = (props) => {
                 aria-labelledby="example-modal-sizes-title-sm"
                 centered
             >
-                {/* <img src={cancel} alt="Cancelar" className="modal-close" onClick={close}/> */}
                 <Modal.Header className="modal-header">
                     <Modal.Title className="modal-title">{props.title}</Modal.Title> 
                 </Modal.Header>

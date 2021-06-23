@@ -17,14 +17,6 @@
     color: #FFF;
 }
 
-.modal-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: -20px;
-    margin-right: -30px;
-}
-
 .modal-footer {
     display: flex;
     justify-content: center;

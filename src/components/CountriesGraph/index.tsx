@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { DailyDataPerMonth } from '../../request/daily-data-per-month';
 import { CountryService } from '../../services/country.service';
 import { VaccineApplicationService } from '../../services/vaccine-application.service';
 
@@ -17,7 +16,9 @@ interface GraphData {
     months: string[],
     vaccines: number[],
     cases: number[],
-    deaths: number[]
+    deaths: number[],
+    active_cases: number[],
+    recovered_cases: number[]
 }
 
 interface ParamProps {
@@ -29,23 +30,28 @@ const CountriesGraph: React.FC<CountriesGrapgProps> = ({
     country_name
 }) => {
     const params = useParams<ParamProps>();
+    let monthsAgo = 2;
     const [graphData, setGraphData] = useState<GraphData>({
         months:[],
         cases:[],
         deaths:[],
-        vaccines:[]
+        vaccines:[],
+        active_cases: [],
+        recovered_cases: []
     })
 
     async function handleGetDataInterval() {
         const countryService = new CountryService();
         const vaccinationService = new VaccineApplicationService();
-        const data = await countryService.GetDailyDataPerMonth(params.country, 5);
+        const data = await countryService.GetDailyDataPerMonth(params.country, monthsAgo);
 
-        const vaccine_data = await vaccinationService.getTotalPerMountByCountry(params.country, 5);
+        const vaccine_data = await vaccinationService.getTotalPerMountByCountry(params.country, monthsAgo);
 
         const months = data.confirmed.map(item => new Date(item[1]).toLocaleString('default', { month: 'long' }));
         const cases = data.confirmed.map(item => item[0]);
         const deaths = data.death.map(item => item[0]);
+        const active_cases = data.active.map(item => item[0]);
+        const recovered_cases = data.recovered.map(item => item[0]);
         const vaccines = vaccine_data.map(item => item.total_vaccination);
 
         console.log(vaccines);
@@ -54,21 +60,25 @@ const CountriesGraph: React.FC<CountriesGrapgProps> = ({
             months,
             cases,
             deaths,
-            vaccines
+            vaccines,
+            active_cases,
+            recovered_cases
         });
 
-        console.log(cases, months, deaths)
+        console.log(cases, months, deaths, active_cases, recovered_cases)
     }
 
     function handleSetOptionsIterval() {
         const start = new Date(vaccination_started ? vaccination_started:'');
         const current = new Date();
 
-        const diff = monthDiff(start, current);
+
+        const diff = monthDiff(start, current)
+        
         const options = [];
 
         for(let i = 0; i+2 <= diff; i++) {
-            options.push(<option key={i}>Últimos {i+2} meses</option>);
+            options.push(<option key={i} value={i+2}>Últimos {i+2} meses</option>);
         }
 
         return options;
@@ -79,8 +89,16 @@ const CountriesGraph: React.FC<CountriesGrapgProps> = ({
           (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
     }
 
+    function handleChangeMonthsInterval(e: any) {
+        monthsAgo = e.target.value;
+        console.log(e.target.value);
+        console.log(monthsAgo);
+        handleGetDataInterval();
+    }
+
     useEffect(()=> {
         handleGetDataInterval();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -88,7 +106,7 @@ const CountriesGraph: React.FC<CountriesGrapgProps> = ({
             <Header>
                 <Title>Impacto da vacinação no {country_name}</Title>
                 <ConfigWrapper>
-                    <MonthIntervalSelect>
+                    <MonthIntervalSelect onChange={handleChangeMonthsInterval}>
                         {handleSetOptionsIterval()}
                     </MonthIntervalSelect>
                 </ConfigWrapper>

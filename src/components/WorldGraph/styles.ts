@@ -59,7 +59,7 @@ export const ChartWrapper = styled.div`
 `;
 
 export const DoseSelect = styled.select`
-    width: 100px;
+    width: 140px;
     border: none;
     padding: 0;
     border: 0;

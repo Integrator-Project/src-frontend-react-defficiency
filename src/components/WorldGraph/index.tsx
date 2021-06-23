@@ -26,10 +26,10 @@ const WorldGraph: React.FC<WorldGraphProps> = ({
             <Header>
                 <Title>Aplicação das vacinas no mundo</Title>
                 <ConfigWrapper>
-                    <DoseSelect>
+                    {/* <DoseSelect>
                         <option>1º dose</option>
                         <option>2º dose</option>
-                    </DoseSelect>
+                    </DoseSelect> */}
                 </ConfigWrapper>
             </Header>
             <ChartWrapper>
