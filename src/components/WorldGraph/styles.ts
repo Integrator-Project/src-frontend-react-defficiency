@@ -21,10 +21,11 @@ export const Container = styled.div`
 export const Header = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 
 export const Title = styled.div`
-    font-size: 20px;
+    font-size: 25px;
 `;
 
 export const ConfigWrapper = styled.div`
@@ -53,11 +54,28 @@ export const ChartWrapper = styled.div`
         display: flex;
         justify-content: center;
 
-        font-size: 70px;
+        font-size: 60px;
     }
+`;
+
+export const DoseSelect = styled.select`
+    width: 100px;
+    border: none;
+    padding: 0;
+    border: 0;
+    background-color: var(--secondary);
+    line-height: inherit;
+
+    > option {
+        outline: none;
+        border: 0;
+        background-color: var(--primary);
+    }
+    
 `;
 
 export const HelpIcon = styled(QuestionCircle)`
     width: 25px;
     color: var(--light-gray)
 `;
+

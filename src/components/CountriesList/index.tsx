@@ -1,42 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import CountryItem from '../CountryItem';
 import DefficiencyModal from '../../components/DefficiencyModal';
 
 import { Container, Header, Title, List, Button } from './styles';
-import { Country } from '../../models/country.model';
-import { CountryService } from '../../services/country.service'
+import { VaccineApplicationService } from '../../services/vaccine-application.service';
+import { GetMost } from '../../request/get-most';
 
 const CountriesList: React.FC = () => {
-    const [country, setCountry] = useState<Country[]>([]);
+    const [data, setData] = useState<GetMost>();
 
-    async function handleGetCountries() {
-        const countryService = new CountryService();
-        setCountry(await countryService.getAll())
-    }
-
-    function handleGenerateCountryItem(detailed: boolean) {
-        return (
-            country.map(country => {
-                return <CountryItem
-                    key={country.id}
-                    country={country}
-                    detailed={detailed}
-                    vaccination_percentage={60}
-                    total_vaccination={21321521}/>
-            })
-        );
-    }
-
-    useEffect(() => {
-        handleGetCountries()
-    }, [])
-
-    const history = useHistory();
     const [isModalVisible, setModalVisible] = useState(false);
     const itens = handleGenerateCountryItem(false);
-
     const itens2 = handleGenerateCountryItem(true);
 
     const modal = DefficiencyModal({
@@ -49,6 +24,31 @@ const CountriesList: React.FC = () => {
         }
     });
 
+    async function handleGetCountries() {
+        const vaccineApplicationService = new VaccineApplicationService();
+        setData((await vaccineApplicationService.getMost('vaccinated')))
+    }
+
+    function handleGenerateCountryItem(detailed: boolean) {
+        let position = 0;
+        return (
+            data?.result.map(data => {
+                position += 1;
+                return <CountryItem
+                    key={data.country.id}
+                    position={position}
+                    country={data.country}
+                    detailed={detailed}
+                    vaccination_percentage={data.percentage}
+                    total_vaccination={data.total}/>
+            })
+        );
+    }
+
+    useEffect(() => {
+        handleGetCountries()
+    }, [])
+
     function handleShowModal() {
         setModalVisible(true);
     }
@@ -60,7 +60,7 @@ const CountriesList: React.FC = () => {
                 <Title>Países que mais vacinaram</Title>
             </Header>
             <List>
-                { itens.slice(0, 5) }
+                { itens?.slice(0, 5) }
             </List>
             <Button onClick={handleShowModal}>Ver todos os países</Button>
         </Container>

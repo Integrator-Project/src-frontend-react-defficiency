@@ -15,7 +15,7 @@ const CasesCard: React.FC<Props> = ({
         <Container>
             <Title>{title}</Title>
 
-            <Amount improving={improving}>{amount.toLocaleString('pt-br')}</Amount>
+            <Amount improving={improving}>{amount?.toLocaleString('pt-br')}</Amount>
         </Container>
     );
 }

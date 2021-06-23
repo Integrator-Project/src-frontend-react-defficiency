@@ -7,6 +7,12 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
+
     html, body, #root {
         height: 100%;
     }
@@ -30,7 +36,7 @@ export default createGlobalStyle`
         --tertiary: #1D1D1D;
     
         --white: #fff;
-        --light-gray: #6F6E6E;
+        --light-gray: #A9A9A9;
         --input: #6C7581;
 
         --getting-worse: #C81919;

@@ -1,29 +1,28 @@
 import React from 'react';
 
 import vaccineImage from "../../assets/vaccine.png";
+import { Vaccine } from '../../models/vaccine.model';
 
 import { Container, Identification, Producer } from './styles';
 
-interface CountryItemProps {
-    name: string,
-    producer: string
+interface VaccineItemProps {
+    vaccine: Vaccine
 }
 
-const CountryItem: React.FC<CountryItemProps> = ({
-    name,
-    producer
+const VaccineItem: React.FC<VaccineItemProps> = ({
+    vaccine
 }) => {
     return (
         <Container>
             <Identification>
                 <img src={vaccineImage} alt="Icone Vacina" />
-                <span>{name}</span>
+                <span>{vaccine.name}</span>
             </Identification>
             <Producer>
-                {producer}
+                {vaccine.type}
             </Producer>
         </Container>
     );
 }
 
-export default CountryItem;
+export default VaccineItem;

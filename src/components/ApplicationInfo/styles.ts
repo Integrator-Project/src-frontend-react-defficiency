@@ -7,11 +7,17 @@ export const Container = styled.div`
 
 
 export const Logo = styled.div`
+    display: flex;
     font-weight: bold;
     font-size: 40px;
 
     margin-top: 10px;
     cursor: pointer;
+
+    > span {
+        color: var(--light-gray);
+        align-self: flex-end;
+    } 
 `;
 
 export const CustomDate = styled.div`
@@ -26,4 +32,5 @@ export const CustomDate = styled.div`
 export const DoubleArrowIcon = styled(DoubleArrow)`
     width: 15px;
     color: var(--light-gray);
+    margin-bottom: 1px;
 `;

@@ -8,14 +8,14 @@ export abstract class BaseService<T extends Entity> {
 
     constructor(model_route: string) {
         this.model_route = model_route;
-        this.service = new HttpService();
+        this.service = new HttpService(model_route);
     }
 
     async getAll() {
-        return (await this.service.get<T[]>(`${this.model_route}/`)).data
+        return (await this.service.get<T[]>(``)).data
     }
 
     async getById(id: number) {
-        return (await this.service.get<T>(`${this.model_route}/${id}/`)).data
+        return (await this.service.get<T>(`${id}/`)).data
     }
 }

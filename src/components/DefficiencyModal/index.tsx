@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-import cancel from '../../assets/icons/cancel.svg';
-
 import { Container } from './styles';
 import './styles.css';
 
@@ -16,10 +14,6 @@ interface HolmesModalProps {
 
 const DefficiencyModal:React.FC<HolmesModalProps> = (props) => {
     const [show] = useState(true);
-
-    function close() {
-        props.setVisible(false);
-    }
 
     function confirm() {
         props.confirmAction();

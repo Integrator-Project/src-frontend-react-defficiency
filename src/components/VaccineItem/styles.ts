@@ -36,4 +36,6 @@ export const Producer = styled.div`
     display: flex;
     align-items: center;
     color: var(--light-gray);
+
+    
 `;
