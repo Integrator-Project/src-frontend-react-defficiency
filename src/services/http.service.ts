@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 
 export class HttpService {
     env = {
-        API_URL: 'http://127.0.0.1:8000/api'
+        API_URL: 'https://src-backend-django-defficiency.herokuapp.com/api'
     }
     base_route: string;
     constructor(route: string) {
