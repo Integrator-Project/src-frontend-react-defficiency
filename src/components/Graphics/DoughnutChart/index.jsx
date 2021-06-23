@@ -11,7 +11,7 @@ class DoughnutChart extends React.Component {
   
     componentDidUpdate() {
       this.myChart.data.labels = ['População Mundial não vacinada', 'Vacinas aplicadas no mundo'];
-      this.myChart.data.datasets[0].data = [7000000000, 2000000000];
+      this.myChart.data.datasets[0].data = this.props.data;
       this.myChart.update();
     }
   
@@ -30,7 +30,7 @@ class DoughnutChart extends React.Component {
         data: {
           labels: ['População Mundial não vacinada', 'Vacinas aplicadas no mundo'],
           datasets: [{
-            data: [7000000000, 2000000000],
+            data: this.props.data,
             backgroundColor: ['#a8e0ff', '#BBB6DF']
           },
         ]

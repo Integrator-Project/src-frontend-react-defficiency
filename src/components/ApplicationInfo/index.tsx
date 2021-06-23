@@ -1,9 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { Country } from '../../models/country.model';
 
 import { Container, Logo, CustomDate, DoubleArrowIcon } from './styles';
 
-const VaccinationsCard: React.FC = () => {
+interface Props {
+    country?: Country;
+}
+
+const ApplicationInfo: React.FC<Props> = ({country}) => {
     const date = handleGetDate();
     const history = useHistory();
 
@@ -24,11 +29,11 @@ const VaccinationsCard: React.FC = () => {
 
     return (
         <Container>
-            <Logo onClick={handleShowLanding}>Defficiency</Logo>
+            <Logo onClick={handleShowLanding}>Defficiency{country && <span>({country.name})</span>}</Logo>
 
             <CustomDate><DoubleArrowIcon/>{date}</CustomDate>
         </Container>
     );
 }
 
-export default VaccinationsCard;
+export default ApplicationInfo;

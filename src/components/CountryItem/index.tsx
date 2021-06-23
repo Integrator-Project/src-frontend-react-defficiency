@@ -5,6 +5,7 @@ import { Country } from '../../models/country.model';
 import { Container, Identification, Results } from './styles';
 
 interface CountryItemProps {
+    position: number;
     country: Country;
     vaccination_percentage: number,
     total_vaccination: number,
@@ -12,6 +13,7 @@ interface CountryItemProps {
 }
 
 const CountryItem: React.FC<CountryItemProps> = ({
+    position,
     country,
     vaccination_percentage,
     total_vaccination,
@@ -20,13 +22,13 @@ const CountryItem: React.FC<CountryItemProps> = ({
     const history = useHistory();
 
     function HandleViewMore() {
-        history.push(`/${country.alpha3_code}`)
+        history.push(`/${country.alpha2_code.toUpperCase()}`)
     }
 
     return (
         <Container onClick={HandleViewMore}>
             <Identification>
-                <span>{country.id}</span>
+                <span>{position}</span>
                 <img src={country.flag} alt={`Imagem do país ${country.name}`} />
                 <span>{country.name}</span>
             </Identification>

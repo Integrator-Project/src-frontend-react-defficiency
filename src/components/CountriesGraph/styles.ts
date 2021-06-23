@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { QuestionCircle } from 'styled-icons/fa-regular';
 
 export const Container = styled.div`
     display: flex;
@@ -31,7 +30,17 @@ export const ConfigWrapper = styled.div`
 
 `;
 
-export const HelpIcon = styled(QuestionCircle)`
-    width: 25px;
-    color: var(--light-gray)
+export const MonthIntervalSelect = styled.select`
+    width: 150px;
+    border: none;
+    padding: 0;
+    border: 0;
+    background-color: var(--secondary);
+    line-height: inherit;
+
+    > option {
+        outline: none;
+        border: 0;
+        background-color: var(--primary);
+    }
 `;
